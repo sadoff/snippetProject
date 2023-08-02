@@ -1,13 +1,16 @@
 {
   "name": "Hello Extensions",
   "description": "Base Level Extension",
-  "permissions": [ "cookies"],
+  "permissions": [
+    "cookies",
+    "tabs"
+  ],
   "host_permissions": [
     "*://*.lmru.tech/",
     "*://*.leroymerlin.ru/"
   ],
+  "incognito": "split",
   "version": "1.0",
-  "content_security_policy": "script-src 'self' 'sha256-WOdSzz11/3cpqOdrm89LBL2UPwEU9EhbDtMy2OciEhs='",
   "manifest_version": 3,
   "action": {
     "default_popup": "addCookie.html",
