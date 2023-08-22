@@ -1,47 +1,66 @@
-function setCookie(name, value) {
+async function setCookie(name, value) {
 	let whiteList = ['lmru.tech', 'leroymerlin.ru'];
-	let url = getCurrentPageUrl();
+	let tabs = await chrome.tabs.query({active: true, lastFocusedWindow: true});
 
-	let domain = whiteList.reduce(( _a, item) => url.indexOf(item) != -1 ? '.' + item : false); 
-	if (!domain) {
-		alert('Ты не на стенде LeroyMerlin!');
-		return;
+	if (tabs.length != 0) {
+		let domain = whiteList.find((item) => tabs[0].url.indexOf(item) != -1 ? '.' + item : false);
+
+		if (domain !== undefined) {
+			chrome.cookies.set({'name': name, 'value': value, 'domain': domain, 'path': '/', 'url': tabs[0].url});
+			return new Promise((resolve, _) => resolve(value));
+		}
 	}
-	
-	chrome.cookies.set({'name': name, 'value': value, 'domain': domain, 'path': '/', 'url': url});
+
+	warning();
 }
 
-async function getCurrentPageUrl() {
-	let url;
+async function getCookie(name) {
+	let tabs = await chrome.tabs.query({active: true, lastFocusedWindow: true});
 
-	chrome.tabs.query({active: true, lastFocusedWindow: true}, tabs => {
-		url = tabs[0].url;
-		alert(url);
+	if (tabs.length != 0) {
+		return chrome.cookies.get({'name': name, 'url': tabs[0].url});
+	}
+
+	warning();
+}
+
+async function reload() {
+	await chrome.tabs.query({active: true, lastFocusedWindow: true}, tabs => {
+		if (tabs.length != 0) {
+			return chrome.tabs.reload(tabs[0].id)
+		}
+
+		warning();
+	});
+}
+
+function warning() {
+	alert('Ты не на стенде LeroyMerlin!');
+}
+
+function isCookieTrue(value) {
+	return value != undefined && value != null && value.value != 'false';
+}
+
+(async function main() {
+    /**
+	 * cartInfo
+	 * key1:value2%3Bkey2:value2
+	 */
+	document.getElementById('cartInfo').addEventListener('click', function () {
+		setCookie(this.value, prompt('Введите значение для корзины', '1:1'));
+		reload();
 	});
 
-	return url;
-}
+	/**
+	 * _unitedMiddle
+	 * true/false
+	 */
+	let _unitedMiddle = await getCookie('_unitedMiddle');
 
-function getCookie(name) {
-	alert(getCurrentPageUrl());
-	//return chrome.cookies.get({'name': name, 'url': getCurrentPageUrl()});
-}
-
-/**
- * cartInfo
- * key1:value2%3Bkey2:value2
- */
-document.getElementById('cartInfo').addEventListener('click', function () {
-	setCookie(this.value, prompt('Введите значение для корзины', '1:1'));
-});
-
-/**
- * _unitedMiddle
- * true/false
- */
-let _unitedMiddle = getCookie('_unitedMiddle');
-
-document.getElementById('unitedMiddle').setAttribute('class', _unitedMiddle != undefined ? _unitedMiddle.value : 'false');
-document.getElementById('unitedMiddle').addEventListener('click', function () {
-	this.setAttribute('class', setCookie(this.value, this.getAttribute('class') == 'false' ? 'true' : 'false'));
-});
+	document.getElementById('unitedMiddle').setAttribute('class', isCookieTrue(_unitedMiddle) ? _unitedMiddle.value : 'false');
+	document.getElementById('unitedMiddle').addEventListener('click', async function () {
+		this.setAttribute('class', await setCookie(this.value, this.getAttribute('class') == 'false' ? 'true' : 'false'));
+		reload();
+	});
+})();
