@@ -2,13 +2,18 @@
 <html>
 <head>
 	<style>
-		.true {
-			font-weight: bold;
-			color: green;
+		#wrapper, table {
+			background: no-repeat center / contain url('background.png');
+			text-align: center;
+			width: 530px;
+			margin: 0;
+			padding: 0;
 		}
 
-		.false {
-			color: red;
+		td {
+			text-align: left;
+			font-size: 12px;
+			padding: 12px;
 		}
 
 		button {
@@ -20,12 +25,29 @@
 			cursor: pointer;
 		}
 
-		button:hover {
+		input {
+			border-radius: 3px;
+			margin-top: 3px;
+			padding: 8px 6px;
+			width: 220px;
+			cursor: pointer;
+		}
+
+		button:hover, input:hover {
 			border-color: aquamarine;
 		}
 
-		.right {
-			text-align: right;
+		small {
+			color: #555;
+		}
+
+		.true {
+			font-weight: bold;
+			color: green;
+		}
+
+		.false {
+			color: red;
 		}
 	</style>
 	<meta charset="utf-8">
@@ -33,30 +55,45 @@
 	<title></title>
 </head>
 <body>
-	<button id="cartInfo" value="cartInfo">cartInfo</button>
-	<button id="unitedMiddle" value="_unitedMiddle" class="false" data-type="toggle">_unitedMiddle</button>
-	<button id="_b2bCheckout3" value="_b2bCheckout3" class="false" data-type="toggle">_b2bCheckout3</button>
-	<button id="_unifiedDelivery" value="_unifiedDelivery" class="false" data-type="toggle">_unifiedDelivery</button>
-	<table id="info">
-		<tr>
-			<td class="right"><b>_ym_uid</b></td>
-			<td id="_ym_uid">нет</td>
-			<td class="right"><b>_ga</b></td>
-			<td id="_ga">нет</td>
-		</tr>
-		<tr>
-			<td class="right"><b>rxVisitor</b></td>
-			<td id="rxVisitor">нет</td>
-			<td class="right"><b>checkoutOrderId</b></td>
-			<td id="checkoutOrderId">нет</td>
-		</tr>
-		<tr>
-			<td class="right"><b>checkoutSessions</b></td>
-			<td id="checkoutSessions">нет</td>
-			<td class="right"></td>
-			<td></td>
-		</tr>
-	</table>
+	<div id="wrapper">
+		<p>
+			<button id="addCartInfo" value="cartInfo">cartInfo</button>
+			<button id="unitedMiddle" value="_unitedMiddle" class="false" data-state="false" data-type="toggle">_unitedMiddle</button>
+		</p>
+		<small>Нажми на текстовое поле, чтобы скопировать значение в буфер обмена.</small>
+		<table id="info">
+			<tr>
+				<td>
+					<b>_ym_uid:</b><br />
+					<input id="_ym_uid" type="text" readonly="readonly" value="нет" />
+				</td>
+				<td>
+					<b>_ga:</b><br />
+					<input id="_ga" type="text" readonly="readonly" value="нет" />
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<b>rxVisitor:</b><br />
+					<input id="rxVisitor" type="text" readonly="readonly" value="нет" />
+				</td>
+				<td>
+					<b>checkoutOrderId:</b><br />
+					<input id="checkoutOrderId" type="text" readonly="readonly" value="нет" />
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<b>cartInfo:</b><br />
+					<input id="cartInfo" type="text" readonly="readonly" value="нет" />
+				</td>
+				<td>
+					<b>checkoutSessions:</b><br />
+					<input id="checkoutSessions" type="text" readonly="readonly" value="нет" />
+				</td>
+			</tr>
+		</table>
+	</div>
 	<script src="addCookie.js"></script>
-</body>vscode-file://vscode-app/c:/Users/60127460/AppData/Local/Programs/Microsoft%20VS%20Code/resources/app/out/vs/code/electron-sandbox/workbench/workbench.html
+</body>
 </html>
