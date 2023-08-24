@@ -3,21 +3,36 @@
 <head>
 	<style>
 		.true {
-			color: red;
+			font-weight: bold;
+			color: green;
 		}
 
 		.false {
-			color: green;
+			color: red;
+		}
+
+		button {
+			border-radius: 5px;
+			width: 200px;
+			font-size: 15px;
+			padding: 20px 26px;
+			margin: 12px;
+			cursor: pointer;
+		}
+
+		button:hover {
+			border-color: aquamarine;
 		}
 	</style>
-	<script src = 'alert.js'></script>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta http-equiv="Content-Security-Policy" content="script-src 'self' 'sha256-WOdSzz11/3cpqOdrm89LBL2UPwEU9EhbDtMy2OciEhs='">
 	<title></title>
 </head>
 <body>
-	<button value="cartInfo" onclick="addCookie(this.value, prompt('Введите значение для корзины', '1:1'));">cartInfo</button>
-	<button value="_unitedMiddle" class="false" onclick="this.setAttribute('class', addCookie(this.value, this.getAttribute('class') == 'false' ? 'true' : 'false'));">_unitedMiddle</button>
+	<button id="cartInfo" value="cartInfo">cartInfo</button>
+	<button id="unitedMiddle" value="_unitedMiddle" class="false" data-type="toggle">_unitedMiddle</button>
+	<button id="_b2bCheckout3" value="_b2bCheckout3" class="false" data-type="toggle">_b2bCheckout3</button>
+	<button id="_unifiedDelivery" value="_unifiedDelivery" class="false" data-type="toggle">_unifiedDelivery</button>
+	<script src="addCookie.js"></script>
 </body>
 </html>

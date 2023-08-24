@@ -1,13 +1,68 @@
-function addCookie(name, value){
+async function setCookie(name, value) {
 	let whiteList = ['lmru.tech', 'leroymerlin.ru'];
-	let domain = whiteList.reduce(( _a, item)=>window.location.hostname.indexOf(item) != -1 ? '.' + item : false); 
-	if(!domain){
-		alert('Ты не на стенде LeroyMerlin');
-		return;
+	let tabs = await chrome.tabs.query({active: true, lastFocusedWindow: true});
+
+	if (tabs.length != 0) {
+		let domain = whiteList.find((item) => tabs[0].url.indexOf(item) != -1 ? '.' + item : false);
+
+		if (domain !== undefined) {
+			chrome.cookies.set({'name': name, 'value': value, 'domain': domain, 'path': '/', 'url': tabs[0].url});
+			return new Promise((resolve, _) => resolve(value));
+		}
 	}
-	//document.cookie = name + '=' + value + '; domain=' + domain + '; path=/'; 
-	chrome.cookies.set({"name": name, "value": value, "domain": domain, "path": "/"});
-	return value;
-}	
 
+	warning();
+}
 
+async function getCookie(name) {
+	let tabs = await chrome.tabs.query({active: true, lastFocusedWindow: true});
+
+	if (tabs.length != 0) {
+		return chrome.cookies.get({'name': name, 'url': tabs[0].url});
+	}
+
+	warning();
+}
+
+async function reload() {
+	await chrome.tabs.query({active: true, lastFocusedWindow: true}, tabs => {
+		if (tabs.length != 0) {
+			return chrome.tabs.reload(tabs[0].id)
+		}
+
+		warning();
+	});
+}
+
+function warning() {
+	alert('Ты не на стенде LeroyMerlin!');
+}
+
+function isCookieTrue(value) {
+	return value != undefined && value != null && value.value != 'false';
+}
+
+(async function main() {
+    /**
+	 * cartInfo
+	 * key1:value2%3Bkey2:value2
+	 */
+	document.getElementById('cartInfo').addEventListener('click', function () {
+		setCookie(this.value, prompt('Введите значение для корзины', '1:1'));
+		reload();
+	});
+
+    /*
+       проходимся по всем кнопкам с атрибтутом toggle и добавляем действие
+    */
+    let items = document.querySelectorAll('[data-type="toggle"]');
+    for (const item of items) {
+        let cookie = await getCookie(item.value);
+
+        item.setAttribute('class', isCookieTrue(cookie) ? cookie.value : 'false');
+        item.addEventListener('click', async function () {
+           this.setAttribute('class', await setCookie(this.value, this.getAttribute('class') == 'false' ? 'true' : 'false'));
+           reload();
+        });
+    }
+})();
