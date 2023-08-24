@@ -63,15 +63,17 @@ function isCookieTrue(value) {
 		reload();
 	});
 
-	/**
-	 * _unitedMiddle
-	 * true/false
-	 */
-	let _unitedMiddle = await getCookie('_unitedMiddle');
+    /*
+       проходимся по всем кнопкам с атрибтутом toggle и добавляем действие
+    */
+    let items = document.querySelectorAll('[data-type="toggle"]');
+    for (const item of items) {
+        let cookie = await getCookie(item.value);
 
-	document.getElementById('unitedMiddle').setAttribute('class', isCookieTrue(_unitedMiddle) ? _unitedMiddle.value : 'false');
-	document.getElementById('unitedMiddle').addEventListener('click', async function () {
-		this.setAttribute('class', await setCookie(this.value, this.getAttribute('class') == 'false' ? 'true' : 'false'));
-		reload();
-	});
+        item.setAttribute('class', isCookieTrue(cookie) ? cookie.value : 'false');
+        item.addEventListener('click', async function () {
+           this.setAttribute('class', await setCookie(this.value, this.getAttribute('class') == 'false' ? 'true' : 'false'));
+           reload();
+        });
+    }
 })();
