@@ -43,6 +43,17 @@ function isCookieTrue(value) {
 }
 
 (async function main() {
+	/**
+	 * _ym_uid, _ga, rxVisitor
+	 */
+	let ym_uid = await getCookie('_ym_uid');
+	let ga = await getCookie('_ga');
+	let rxVisitor = await getCookie('rxVisitor');
+
+	if (isCookieTrue(ym_uid)) document.getElementById('_ym_uid').innerText = ym_uid.value;
+	if (isCookieTrue(ga)) document.getElementById('_ga').innerText = _ga.value;
+	if (isCookieTrue(rxVisitor)) document.getElementById('rxVisitor').innerText = rxVisitor.value;
+
     /**
 	 * cartInfo
 	 * key1:value2%3Bkey2:value2
