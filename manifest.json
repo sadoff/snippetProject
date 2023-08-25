@@ -2,6 +2,8 @@
   "name": "PAO Cookies",
   "description": "Расширение позволяет облегчить работу с куками.",
   "permissions": [
+    "scripting",
+    "storage",
     "cookies",
     "tabs"
   ],
