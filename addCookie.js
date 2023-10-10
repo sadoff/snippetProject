@@ -95,8 +95,8 @@ function toggle(item, condition) {
 	/**
 	 * Добавление обработчиков событий для всех элементов с data-type="toggle"
 	 */
-    let buttons = document.querySelectorAll('[data-type="toggle"]');
-    for (const button of buttons) {
+	let toggleButtons = document.querySelectorAll('[data-type="toggle"]');
+	for (const button of toggleButtons) {
         let cookie = await getCookie(button.value);
 
 		toggle(button, isDefinedAndNotFalse(cookie));
@@ -104,6 +104,30 @@ function toggle(item, condition) {
         button.addEventListener('click', async function () {
 			toggle(this, this.getAttribute('data-state') == 'false');
         	await setCookie(this.value, this.getAttribute('data-state'));
+        	reload();
+        });
+    }
+
+	/**
+	 * Добавление обработчиков событий для всех элементов с data-type="value"
+	 */
+    let valueButtons = document.querySelectorAll('[data-type="value"]');
+    for (const button of valueButtons) {
+        let cookie = await getCookie(button.value);
+	
+		if (isDefinedAndNotFalse(cookie) && cookie.value == button.getAttribute('data-value')) {
+			toggle(button, true);
+		}
+
+        button.addEventListener('click', async function () {
+			let cookie = await getCookie(this.value);
+
+			toggle(this, this.getAttribute('data-state') == 'false');
+			if (isDefinedAndNotFalse(cookie) && cookie.value == this.getAttribute('data-value')) {
+				await setCookie(this.value, 'false');
+			} else {
+				await setCookie(this.value, this.getAttribute('data-value'));
+			}
         	reload();
         });
     }
