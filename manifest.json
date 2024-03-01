@@ -1,26 +1,26 @@
 {
-  "name": "PAO Cookies",
-  "description": "Расширение позволяет облегчить работу с куками.",
-  "permissions": [
-    "scripting",
-    "storage",
-    "cookies",
-    "tabs"
-  ],
-  "icons": {
-    "16":"icons/16.png",
-    "32":"icons/32.png",
-    "48":"icons/48.png",
-    "128":"icons/icon.png"
-  },
-  "host_permissions": [
-    "*://*/"
-  ],
-  "incognito": "split",
-  "version": "1.0",
-  "manifest_version": 3,
-  "action": {
-    "default_popup": "addCookie.html",
-    "default_icon": "icons/icon.png"
-  }
+	"name": "PAO TEAM CONTROL PLUGIN",
+	"description": "Расширение для команды PAO",
+	"permissions": [
+		"scripting",
+		"storage",
+		"cookies",
+		"tabs"
+	],
+	"icons": {
+		"16":"icons/16.png",
+		"32":"icons/32.png",
+		"48":"icons/48.png",
+		"128":"icons/icon.png"
+	},
+	"host_permissions": [
+		"*://*/"
+	],
+	"incognito": "split",
+	"version": "1.0",
+	"manifest_version": 3,
+	"action": {
+		"default_popup": "index.html",
+		"default_icon": "icons/icon.png"
+	}
 }
