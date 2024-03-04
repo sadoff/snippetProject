@@ -51,7 +51,7 @@ async function reload() {
 }
 
 function warning() {
-	alert('Ты не на стенде LeroyMerlin!');
+	alert('Ты не на стенде LM!');
 }
 
 function isDefinedAndNotFalse(value) {
@@ -65,7 +65,44 @@ function toggle(item, condition) {
 	item.classList.remove((!condition).toString());
 }
 
+let main_block = document.getElementById('main');
+
+await fetch('https://raw.githubusercontent.com/sadoff/snippetProject/main/sheme.json')
+	.then(r => r.json())
+	.then(r => {
+		r.main.forEach(panel => {
+			let panel_code = '<div class="panel">';
+
+			if (panel.name !== false) {
+				panel_code += '<h2>' + panel.name + '</h2>';
+			}
+
+			panel.objects.forEach(object => {
+				if (object.type == 'button') {
+					panel_code += '<button value="' + object.name + 
+						'" onclick="setCookie(\'' + object.name + 
+						'\', ' + eval(object.action) + '">' + 
+						object.name + '</button>';
+				}
+				
+				if (object.type == 'toggle' || object.type == 'mini_toggle') {
+					panel_code += '';
+				}
+			});
+			
+			main_block.innerHTML += panel_code + '</div>';
+		});
+
+		r.fields.forEach(field => {
+
+		});
+
+		document.getElementById('loader').style.display = 'none';
+		document.getElementById('wrapper').style.display = 'block';
+	});
+
 (async function main() {
+	let sheme = await fetch('https://raw.githubusercontent.com/sadoff/snippetProject/main/sheme.json');
 	/**
 	 * Таблица со значениями базовых cookies и данных из Local Storage
 	 */

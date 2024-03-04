@@ -1,309 +1,309 @@
 {
-    "panels": {
-        "main": [
+    "main": [
+        {
+            "name": false,
+            "objects": [
+                {
+                    "name": "cartInfo",
+                    "type": "button",
+                    "action": "prompt('Введите значение для корзины', '1:1')"
+                },
+                {
+                    "name": "_unitedMiddle",
+                    "title": "Единый миддл",
+                    "type": "toggle",
+                    "values": [
+                        "true",
+                        false
+                    ]
+                },
+                {
+                    "name": "_unitedDeliveryType",
+                    "title": "Перенос способов получения в чекаут",
+                    "type": "toggle",
+                    "values": [
+                        "true",
+                        false
+                    ]
+                },
+                {
+                    "name": "_unitedMiddleB2B",
+                    "title": "B2B на едином миддле",
+                    "type": "toggle",
+                    "values": [
+                        "true",
+                        false
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Оплата",
+            "objects": [
+                {
+                    "name": "_paymentOrder",
+                    "title": "Платёжное поручение. Работает только для одной группы товаров МП",
+                    "type": "mini_toggle",
+                    "values": [
+                        "true",
+                        false
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Самовывоз",
+            "objects": [
+                {
+                    "name": "_unitedClosestPoint",
+                    "title": "Предвыбор ближайших точек Самовывоза",
+                    "type": "mini_toggle",
+                    "values": [
+                        "true",
+                        false
+                    ]
+                },
+                {
+                    "name": "_unitedEmptyFilters",
+                    "title": "Фильтр Максимум товаров доступно выключен",
+                    "type": "mini_toggle",
+                    "values": [
+                        "true",
+                        false
+                    ]
+                },
+                {
+                    "name": "_productsOnPickupMap",
+                    "title": "Отображение продуктов на карте самовывоза",
+                    "type": "mini_toggle",
+                    "values": [
+                        "true",
+                        false
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Доставка",
+            "objects": [
+                {
+                    "name": "_autocompleteDeliveryType",
+                    "title": "",
+                    "type": "mini_toggle",
+                    "values": [
+                        "onMap",
+                        "onCheckout",
+                        false
+                    ]
+                },
+                {
+                    "name": "_removeCheckoutDeliveryPrice",
+                    "title": "Скрытие стоимости доставки в блоке",
+                    "type": "mini_toggle",
+                    "values": [
+                        "true",
+                        false
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Оформление",
+            "objects": [
+                {
+                    "name": "_customerBeforePayment",
+                    "title": "Блок получателя внизу чекаута",
+                    "type": "mini_toggle",
+                    "values": [
+                        "true",
+                        false
+                    ]
+                },
+                {
+                    "name": "_hideb2bnotifications",
+                    "title": "Скрыть уведомления о недоступности товаров для юр. лиц",
+                    "type": "mini_toggle",
+                    "values": [
+                        "true",
+                        false
+                    ]
+                },
+                {
+                    "name": "_gaPurchaseNew",
+                    "title": "Новая разметка TYP",
+                    "type": "mini_toggle",
+                    "values": [
+                        "true",
+                        false
+                    ]
+                },
+                {
+                    "name": "_removeInfoPanels",
+                    "title": "Скрытие информационных плашек в Корзине",
+                    "type": "mini_toggle",
+                    "values": [
+                        "true",
+                        false
+                    ]
+                },
+                {
+                    "name": "_removeInfoPanels",
+                    "title": "Скрытие информационных плашек в Корзине",
+                    "type": "mini_toggle",
+                    "values": [
+                        "true",
+                        false
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Список покупок",
+            "objects": [
+                {
+                    "name": "shoppingList",
+                    "type": "button",
+                    "action": "prompt('Введите значение для списка покупок', '1:1')"
+                },
+                {
+                    "name": "newWishList",
+                    "title": "Новый список покупок",
+                    "type": "mini_toggle",
+                    "values": [
+                        "true",
+                        false
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Лояльность",
+            "objects": [
+                {
+                    "name": "_loyaltyPointsEnabled",
+                    "title": "Лояльность",
+                    "type": "mini_toggle",
+                    "values": [
+                        "true",
+                        false
+                    ]
+                },
+                {
+                    "name": "_loyaltyPhoneVerificationEnabled",
+                    "title": "Лояльность с верификацией",
+                    "type": "mini_toggle",
+                    "values": [
+                        "true",
+                        false
+                    ]
+                }
+            ]
+        },
+        {
+            "name": false,
+            "objects": [
+                {
+                    "name": "_b2bCheckout3",
+                    "title": "Чекаут с оплатой клиентским счетом",
+                    "type": "mini_toggle",
+                    "values": [
+                        "true",
+                        false
+                    ]
+                },
+                {
+                    "name": "_gaPurchaseNew",
+                    "title": "Новая разметка TYP",
+                    "type": "mini_toggle",
+                    "values": [
+                        "true",
+                        false
+                    ]
+                },
+                {
+                    "name": "_availableServicesInCart",
+                    "title": "Отображение услуг",
+                    "type": "mini_toggle",
+                    "values": [
+                        "instore",
+                        "outstore",
+                        "all",
+                        false
+                    ]
+                },
+                {
+                    "name": "_shortCheckout",
+                    "title": "Короткий чекаут для простых корзин",
+                    "type": "mini_toggle",
+                    "values": [
+                        "true",
+                        false
+                    ]
+                },
+                {
+                    "name": "_lowPrice",
+                    "title": "Перечеркнутая цена",
+                    "type": "mini_toggle",
+                    "values": [
+                        "red",
+                        "green",
+                        false
+                    ]
+                }
+            ]
+        }
+    ],
+    "fields": [
+        [
             {
-                "name": false,
-                "objects": [
-                    {
-                        "name": "cartInfo",
-                        "type": "button",
-                        "action": "prompt('Введите значение для корзины', '1:1')"
-                    },
-                    {
-                        "name": "_unitedMiddle",
-                        "title": "Единый миддл",
-                        "type": "toggle",
-                        "values": [
-                            "true",
-                            false
-                        ]
-                    },
-                    {
-                        "name": "_unitedDeliveryType",
-                        "title": "Перенос способов получения в чекаут",
-                        "type": "toggle",
-                        "values": [
-                            "true",
-                            false
-                        ]
-                    },
-                    {
-                        "name": "_unitedMiddleB2B",
-                        "title": "B2B на едином миддле",
-                        "type": "toggle",
-                        "values": [
-                            "true",
-                            false
-                        ]
-                    }
-                ]
+                "name": "cartInfo",
+                "title": "Список товаров в корзине",
+                "type": "cookie",
+                "item_name": "cartInfo"
             },
             {
-                "name": "Оплата",
-                "objects": [
-                    {
-                        "name": "_paymentOrder",
-                        "title": "Платёжное поручение. Работает только для одной группы товаров МП",
-                        "type": "mini_toggle",
-                        "values": [
-                            "true",
-                            false
-                        ]
-                    }
-                ]
-            },
-            {
-                "name": "Самовывоз",
-                "objects": [
-                    {
-                        "name": "_unitedClosestPoint",
-                        "title": "Предвыбор ближайших точек Самовывоза",
-                        "type": "mini_toggle",
-                        "values": [
-                            "true",
-                            false
-                        ]
-                    },
-                    {
-                        "name": "_unitedEmptyFilters",
-                        "title": "Фильтр Максимум товаров доступно выключен",
-                        "type": "mini_toggle",
-                        "values": [
-                            "true",
-                            false
-                        ]
-                    },
-                    {
-                        "name": "_productsOnPickupMap",
-                        "title": "Отображение продуктов на карте самовывоза",
-                        "type": "mini_toggle",
-                        "values": [
-                            "true",
-                            false
-                        ]
-                    }
-                ]
-            },
-            {
-                "name": "Доставка",
-                "objects": [
-                    {
-                        "name": "_autocompleteDeliveryType",
-                        "title": "",
-                        "type": "mini_toggle",
-                        "values": [
-                            "onMap",
-                            "onCheckout",
-                            false
-                        ]
-                    },
-                    {
-                        "name": "_removeCheckoutDeliveryPrice",
-                        "title": "Скрытие стоимости доставки в блоке",
-                        "type": "mini_toggle",
-                        "values": [
-                            "true",
-                            false
-                        ]
-                    }
-                ]
-            },
-            {
-                "name": "Оформление",
-                "objects": [
-                    {
-                        "name": "_customerBeforePayment",
-                        "title": "Блок получателя внизу чекаута",
-                        "type": "mini_toggle",
-                        "values": [
-                            "true",
-                            false
-                        ]
-                    },
-                    {
-                        "name": "_hideb2bnotifications",
-                        "title": "Скрыть уведомления о недоступности товаров для юр. лиц",
-                        "type": "mini_toggle",
-                        "values": [
-                            "true",
-                            false
-                        ]
-                    },
-                    {
-                        "name": "_gaPurchaseNew",
-                        "title": "Новая разметка TYP",
-                        "type": "mini_toggle",
-                        "values": [
-                            "true",
-                            false
-                        ]
-                    },
-                    {
-                        "name": "_removeInfoPanels",
-                        "title": "Скрытие информационных плашек в Корзине",
-                        "type": "mini_toggle",
-                        "values": [
-                            "true",
-                            false
-                        ]
-                    },
-                    {
-                        "name": "_removeInfoPanels",
-                        "title": "Скрытие информационных плашек в Корзине",
-                        "type": "mini_toggle",
-                        "values": [
-                            "true",
-                            false
-                        ]
-                    }
-                ]
-            },
-            {
-                "name": "Список покупок",
-                "objects": [
-                    {
-                        "name": "shoppingList",
-                        "type": "button",
-                        "action": "prompt('Введите значение для списка покупок', '1:1')"
-                    },
-                    {
-                        "name": "newWishList",
-                        "title": "Новый список покупок",
-                        "type": "mini_toggle",
-                        "values": [
-                            "true",
-                            false
-                        ]
-                    }
-                ]
-            },
-            {
-                "name": "Лояльность",
-                "objects": [
-                    {
-                        "name": "_loyaltyPointsEnabled",
-                        "title": "Лояльность",
-                        "type": "mini_toggle",
-                        "values": [
-                            "true",
-                            false
-                        ]
-                    },
-                    {
-                        "name": "_loyaltyPhoneVerificationEnabled",
-                        "title": "Лояльность с верификацией",
-                        "type": "mini_toggle",
-                        "values": [
-                            "true",
-                            false
-                        ]
-                    }
-                ]
-            },
-            {
-                "name": false,
-                "objects": [
-                    {
-                        "name": "_b2bCheckout3",
-                        "title": "Чекаут с оплатой клиентским счетом",
-                        "type": "mini_toggle",
-                        "values": [
-                            "true",
-                            false
-                        ]
-                    },
-                    {
-                        "name": "_gaPurchaseNew",
-                        "title": "Новая разметка TYP",
-                        "type": "mini_toggle",
-                        "values": [
-                            "true",
-                            false
-                        ]
-                    },
-                    {
-                        "name": "_availableServicesInCart",
-                        "title": "Отображение услуг",
-                        "type": "mini_toggle",
-                        "values": [
-                            "instore",
-                            "outstore",
-                            "all",
-                            false
-                        ]
-                    },
-                    {
-                        "name": "_shortCheckout",
-                        "title": "Короткий чекаут для простых корзин",
-                        "type": "mini_toggle",
-                        "values": [
-                            "true",
-                            false
-                        ]
-                    },
-                    {
-                        "name": "_lowPrice",
-                        "title": "Перечеркнутая цена",
-                        "type": "mini_toggle",
-                        "values": [
-                            "red",
-                            "green",
-                            false
-                        ]
-                    }
-                ]
+                "name": "shoppingList",
+                "title": "Список товаров в списке покупок",
+                "type": "cookie",
+                "item_name": "shoppingList"
             }
         ],
-        "fields": {
-            "columns": [
-                [
-                    {
-                        "name": "cartInfo",
-                        "title": "Список товаров в корзине",
-                        "type": "cookie",
-                        "item_name": "cartInfo"
-                    },
-                    {
-                        "name": "_ym_uid",
-                        "title": "Метка Яндекс.Метрики",
-                        "type": "cookie",
-                        "item_name": "_ym_uid"
-                    },
-                    {
-                        "name": "rxVisitor",
-                        "title": "rxVisitor",
-                        "type": "cookie",
-                        "item_name": "rxVisitor"
-                    },
-                    {
-                        "name": "checkoutOrderId",
-                        "title": "Номер заказа",
-                        "type": "local_storage",
-                        "item_name": "checkoutOrderId"
-                    }
-                ],
-                [
-                    {
-                        "name": "shoppingList",
-                        "title": "Список товаров в списке покупок",
-                        "type": "cookie",
-                        "item_name": "shoppingList"
-                    },
-                    {
-                        "name": "_ga",
-                        "title": "Метка Гугл.Аналитики",
-                        "type": "cookie",
-                        "item_name": "_ga"
-                    },
-                    {
-                        "name": "checkoutSessions",
-                        "title": "(устарело) Номера заказов",
-                        "type": "local_storage",
-                        "item_name": "checkoutSessions"
-                    }
-                ]
-            ]
-            
-        }
-    }
+        [
+            {
+                "name": "_ym_uid",
+                "title": "Метка Яндекс.Метрики",
+                "type": "cookie",
+                "item_name": "_ym_uid"
+            },
+            {
+                "name": "_ga",
+                "title": "Метка Гугл.Аналитики",
+                "type": "cookie",
+                "item_name": "_ga"
+            }
+        ],
+        [
+            {
+                "name": "checkoutOrderId",
+                "title": "Номер заказа",
+                "type": "local_storage",
+                "item_name": "checkoutOrderId"
+            },
+            {
+                "name": "checkoutSessions",
+                "title": "(устарело) Номера заказов",
+                "type": "local_storage",
+                "item_name": "checkoutSessions"
+            }
+        ],
+        [
+            {
+                "name": "rxVisitor",
+                "title": "rxVisitor",
+                "type": "cookie",
+                "item_name": "rxVisitor"
+            },
+            {}
+        ]
+    ]
 }
